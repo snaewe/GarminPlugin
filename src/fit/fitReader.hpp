@@ -41,7 +41,7 @@ using namespace std;
 class FitReader
 {
     public:
-        FitReader(string filename);
+        FitReader(const string& filename);
         virtual ~FitReader();
 
         /**
@@ -107,17 +107,17 @@ class FitReader
         /**
          * Used to output debug messages
          */
-        void dbg(const string txt);
+        void dbg(const string& txt);
 
         /**
          * Used to output debug messages with a number
          */
-        void dbg(const string txt, const int nbr);
+        void dbg(const string& txt, const int nbr);
 
         /**
          * Used to output debug messages with hex buffers
          */
-        void dbgHex(const string txt, const char* data, const unsigned int length);
+        void dbgHex(const string& txt, const char* data, const unsigned int length);
 
         /**
          * Describes one field in a message definition

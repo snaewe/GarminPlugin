@@ -304,7 +304,7 @@ void encodeBase64( stringstream * input, stringstream *output , int linesize )
  * Use uudecode to unpack and then gunzip
  */
 #define CHUNK 16384
-string compressStringData(const string text, const string filename) {
+string compressStringData(const string& text, const string& filename) {
     if (Log::enabledDbg()) {
         stringstream ss;
         ss << text.size();

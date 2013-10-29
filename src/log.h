@@ -48,7 +48,7 @@ public:
    * Prints a string to the log output
    * @param text Text to print.
    */
-    void print(const string text);
+    void print(const string& text);
 
   /**
    * Returns the instance of this class
@@ -60,19 +60,19 @@ public:
    * Prints text if level is at least Debug
    * @param text to print
    */
-    static void dbg(const string text);
+    static void dbg(const string& text);
 
   /**
    * Prints text if level is at least Info
    * @param text to print
    */
-    static void info(const string text);
+    static void info(const string& text);
 
   /**
    * Prints text if level is at least Error
    * @param text to print
    */
-    static void err(const string text);
+    static void err(const string& text);
 
   /**
    * Check debug level setting

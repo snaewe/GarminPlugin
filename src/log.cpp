@@ -34,7 +34,7 @@ Log::Log() {
 Log::~Log() {
 }
 
-void Log::print(const string text) {
+void Log::print(const string& text) {
     string outtext = getTimestamp() + text;
     if (this->logfile == "") {
         cerr << outtext<< endl;
@@ -53,19 +53,19 @@ Log * Log::getInstance() {
     return Log::instance;
 }
 
-void Log::dbg(const string text) {
+void Log::dbg(const string& text) {
     if (Log::level <= Debug) {
         Log::getInstance()->print(text);
     }
 }
 
-void Log::info(const string text) {
+void Log::info(const string& text) {
     if (Log::level <= Info) {
         Log::getInstance()->print(text);
     }
 }
 
-void Log::err(const string text) {
+void Log::err(const string& text) {
     if (Log::level <= Error) {
         Log::getInstance()->print(text);
     }

@@ -30,7 +30,7 @@
 
 #include <sstream>
 
-FitReader::FitReader(string filename)
+FitReader::FitReader(const string& filename)
 : headerLength(0)
 , dataSize(0)
 , remainingDataBytes(0)
@@ -132,14 +132,14 @@ void FitReader::setDebugOutput(bool enable) {
     this->doFitDebug = enable;
 }
 
-void FitReader::dbg(const string txt) {
+void FitReader::dbg(const string& txt) {
     if ((doFitDebug) && (this->fitMsgListener != NULL)) {
         // output debug message to debug sink
         this->fitMsgListener->fitDebugMsg("FitReader: " + txt);
     }
 }
 
-void FitReader::dbg(const string txt, const int nbr) {
+void FitReader::dbg(const string& txt, const int nbr) {
     if ((doFitDebug) && (this->fitMsgListener != NULL)) {
         stringstream ss;
         ss << txt << nbr;
@@ -147,7 +147,7 @@ void FitReader::dbg(const string txt, const int nbr) {
     }
 }
 
-void FitReader::dbgHex(const string txt, const char* data, const unsigned int length) {
+void FitReader::dbgHex(const string& txt, const char* data, const unsigned int length) {
     if ((doFitDebug) && (this->fitMsgListener != NULL)) {
         // Build hex string for debug message
         stringstream ss;
