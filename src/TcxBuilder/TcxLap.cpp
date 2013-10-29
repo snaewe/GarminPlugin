@@ -20,20 +20,11 @@
 #include "TcxLap.h"
 #include "TcxTypes.h"
 
-TcxLap::TcxLap() {
-    this->totalTimeSeconds="";
-    this->distanceMeters="";
-    this->maximumSpeed="";
-    this->calories = "";
-    this->averageHeartRateBpm = "";
-    this->maximumHeartRateBpm = "";
-    this->intensity = TrainingCenterDatabase::Resting;
-    this->cadence = "";
-    this->triggerMethod = TrainingCenterDatabase::Manual;
-    this->notes = "";
-    this->cadenceSensorType = TrainingCenterDatabase::UndefinedCadenceType;
-    this->maxCadence="";
-    this->avgSpeed="";
+TcxLap::TcxLap()
+:intensity(TrainingCenterDatabase::Resting)
+,triggerMethod(TrainingCenterDatabase::Manual)
+,cadenceSensorType(TrainingCenterDatabase::UndefinedCadenceType)
+{
 }
 
 TcxLap::~TcxLap() {

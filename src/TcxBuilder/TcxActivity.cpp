@@ -19,10 +19,11 @@
 
 #include "TcxActivity.h"
 
-TcxActivity::TcxActivity(string id) {
-    this->id = id;
-    this->creator = NULL;
-    this->sportType = TrainingCenterDatabase::Other;
+TcxActivity::TcxActivity(string id)
+:id(id)
+,sportType(TrainingCenterDatabase::Other)
+,creator(NULL)
+{
 }
 
 TcxActivity::~TcxActivity() {

@@ -27,8 +27,9 @@
 Log * Log::instance;
 LogLevel Log::level = Error;
 
-Log::Log() {
-    this->logfile = "";
+Log::Log()
+:logfile("")
+{
 }
 
 Log::~Log() {

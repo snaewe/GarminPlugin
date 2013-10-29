@@ -19,14 +19,15 @@
 
 #include "TcxCreator.h"
 
-TcxCreator::TcxCreator() {
-    this->name = "Unknown";
-    this->unitId = "3549600474"; // A random unit id found on the web for the Edge 705
-    this->productId = "625";     // A random product id found on the web for the Edge 705
-    this->versionMajor = "0";
-    this->versionMinor = "0";
-    this->buildMajor = "";
-    this->buildMinor = "";
+TcxCreator::TcxCreator()
+:name("Unknown")
+,unitId("3549600474") // A random unit id found on the web for the Edge 705
+,productId("625")     // A random product id found on the web for the Edge 705
+,versionMajor("0")
+,versionMinor("0")
+,buildMajor("")
+,buildMinor("")
+{
 }
 
 TcxCreator::~TcxCreator() {

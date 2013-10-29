@@ -25,12 +25,12 @@
 using namespace std;
 
 MessageBox::MessageBox(MessageType type, string text, int buttons, int defaultBtn, GpsDevice *device)
+:device(device)
+,text(text)
+,buttons(buttons)
+,defaultButton(defaultBtn)
+,type(type)
 {
-    this->device = device;
-    this->text = text;
-    this->buttons = buttons;
-    this->defaultButton = defaultBtn;
-    this->type = type;
 }
 
 
