@@ -103,9 +103,9 @@ class GpsFunctions {
     }
 
     static int mkpath(std::string path, mode_t mode) {
-        size_t pre=0,pos;
+        std::string::size_type pre=0,pos;
         std::string dir;
-        int mdret;
+        int mdret=-1;
 
         if(path[path.size()-1]!='/') {
             path+='/';
@@ -176,7 +176,7 @@ class GpsFunctions {
 
     static string str_replace (string rep, string wit, string in) {
     	  while (true) {
-    	    int pos = in.find(rep);
+    	    string::size_type pos = in.find(rep);
     	    if (pos == string::npos) {
     	      break;
     	    } else {
@@ -189,7 +189,7 @@ class GpsFunctions {
 
     static bool iequals(const string& a, const string& b)
     {
-        unsigned int sz = a.size();
+        string::size_type sz = a.size();
         if (b.size() != sz)
             return false;
         for (unsigned int i = 0; i < sz; ++i)
