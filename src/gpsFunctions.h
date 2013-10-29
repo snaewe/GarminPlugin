@@ -175,10 +175,9 @@ class GpsFunctions {
     }
 
     static string str_replace (string rep, string wit, string in) {
-    	  int pos;
     	  while (true) {
-    	    pos = in.find(rep);
-    	    if (pos == -1) {
+    	    int pos = in.find(rep);
+    	    if (pos == string::npos) {
     	      break;
     	    } else {
     	      in.erase(pos, rep.length());
