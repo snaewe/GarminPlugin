@@ -189,12 +189,6 @@ TcxBase * Edge305Device::readFitnessDataFromGarmin() {
    TcxBase * fitData = NULL;
 
    garmin_unit garmin;
-   garmin_data *       data0;
-   garmin_data *       data1;
-   garmin_data *       data2;
-   garmin_list *       runs   = NULL;
-   garmin_list *       laps   = NULL;
-   garmin_list *       tracks = NULL;
    if ( garmin_init(&garmin,0) != 0 ) {
         Log::dbg("Extracting data from Garmin "+this->displayName);
         garmin_data * fitnessdata = garmin_get(&garmin,GET_RUNS);
@@ -208,13 +202,16 @@ TcxBase * Edge305Device::readFitnessDataFromGarmin() {
             TcxAuthor * author = new TcxAuthor();
             *(fitData)<<author;
 
-            data0 = garmin_list_data(fitnessdata,0);
-            data1 = garmin_list_data(fitnessdata,1);
-            data2 = garmin_list_data(fitnessdata,2);
+            garmin_data * data0 = garmin_list_data(fitnessdata,0);
+            garmin_data * data1 = garmin_list_data(fitnessdata,1);
+            garmin_data * data2 = garmin_list_data(fitnessdata,2);
+            garmin_list *       laps   = NULL;
+            garmin_list *       tracks = NULL;
 
             if ( data0 != NULL && (data0->data != NULL) &&
                  data1 != NULL && (laps   = (garmin_list*)data1->data) != NULL &&
                  data2 != NULL && (tracks = (garmin_list*)data2->data) != NULL ) {
+                garmin_list *       runs   = NULL;
                 if (data0->type == data_Dlist) {
                     runs = (garmin_list*)(data0->data);
                 } else {

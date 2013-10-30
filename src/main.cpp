@@ -266,10 +266,10 @@ static const char cb64[]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01
 void encodeBase64( stringstream * input, stringstream *output , int linesize )
 {
     unsigned char in[3], out[4];
-    int i, len, blocksout = 0;
+    int i, blocksout = 0;
 
     while( !input->eof() ) {
-        len = 0;
+        int len = 0;
         for( i = 0; i < 3; i++ ) {
             input->get((char&)in[i]);
             if( !input->eof() ) {
@@ -312,7 +312,6 @@ string compressStringData(const string& text, const string& filename) {
     }
     std::stringstream compressed ("");
     int ret;
-    unsigned have;
     z_stream strm;
     char out[CHUNK];
 
@@ -335,7 +334,7 @@ string compressStringData(const string& text, const string& filename) {
         strm.avail_out = CHUNK;
         strm.next_out = (Bytef*) out;
         ret = deflate(&strm, Z_FINISH);    /* no bad return value */
-        have = CHUNK - strm.avail_out;
+        unsigned have = CHUNK - strm.avail_out;
         compressed.write(out, have);
         if (compressed.bad()) {
             (void)deflateEnd(&strm);
